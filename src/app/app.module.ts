@@ -5,11 +5,18 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { CustsComponent } from './custs/custs.component';
+import { CustCreateComponent } from './cust-create/cust-create.component';
+import { CustDetailComponent } from './cust-detail/cust-detail.component';
 const appRoutes: Routes = [
   {
     path: 'custs',
     component: CustsComponent,
     data: { title: 'Customer List' }
+  },
+  {
+    path: 'book-details/:id',
+    component: CustDetailComponent,
+    data: { title: 'Customer Details' }
   },
   { path: '',
     redirectTo: '/custs',
@@ -20,7 +27,9 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    CustsComponent
+    CustsComponent,
+    CustCreateComponent,
+    CustDetailComponent
   ],
   imports: [
     BrowserModule,
