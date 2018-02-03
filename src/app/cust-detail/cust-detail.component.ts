@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-cust-detail',
@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 export class CustDetailComponent implements OnInit {
 
 cust = {};
-  constructor(private route: ActivatedRoute, private http: HttpClient) { }
+  constructor(private router: Router , private route: ActivatedRoute, private http: HttpClient) { }
 
   ngOnInit() {
     this.getCustDetail(this.route.snapshot.params['id']);
@@ -21,6 +21,16 @@ cust = {};
     this.http.get('/custs/' + id).subscribe(data => {
       this.cust = data;
     });
+  }
+
+  deleteCustomer(id) {
+    this.http.delete('/customer/' + id)
+      .subscribe(res => {
+          this.router.navigate(['/custs']);
+        }, (err) => {
+          console.log(err);
+        }
+      );
   }
 
 }
