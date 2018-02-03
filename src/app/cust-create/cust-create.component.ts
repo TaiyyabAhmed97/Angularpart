@@ -14,7 +14,7 @@ customer = {};
   }
 
   saveCustomer() {
-    this.http.post('api/something', this.customer)
+    this.http.post('api/', this.customer)
       .subscribe(res => {
         const id = res['_id'];
         this.router.navigate(['/cust-details', id]);

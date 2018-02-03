@@ -10,7 +10,7 @@ import { CustDetailComponent } from './cust-detail/cust-detail.component';
 import { CustEditComponent } from './cust-edit/cust-edit.component';
 const appRoutes: Routes = [
   {
-    path: 'custs',
+    path: 'customers',
     component: CustsComponent,
     data: { title: 'Customer List' }
   },
@@ -30,7 +30,7 @@ const appRoutes: Routes = [
     data: { title: 'Edit Customer' }
   },
   { path: '',
-    redirectTo: '/custs',
+    redirectTo: '/customers',
     pathMatch: 'full'
   }
 ];

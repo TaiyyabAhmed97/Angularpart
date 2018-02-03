@@ -18,13 +18,13 @@ cust = {};
   }
 
   getCustDetail(id) {
-    this.http.get('/custs/' + id).subscribe(data => {
+    this.http.get('api/' + id).subscribe(data => {
       this.cust = data;
     });
   }
 
   deleteCustomer(id) {
-    this.http.delete('/customer/' + id)
+    this.http.delete('api/' + id)
       .subscribe(res => {
           this.router.navigate(['/custs']);
         }, (err) => {

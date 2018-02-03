@@ -10,7 +10,7 @@ custs: any;
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    this.http.get('api/customers').subscribe(data => {
+    this.http.get('api/').subscribe(data => {
       this.custs = data;
       console.log(this.custs);
     });

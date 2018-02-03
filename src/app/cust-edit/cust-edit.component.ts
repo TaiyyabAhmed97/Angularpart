@@ -18,13 +18,13 @@ export class CustEditComponent implements OnInit {
   }
 
   getCustomer(id) {
-    this.http.get('/customer' + id).subscribe(data => {
+    this.http.get('api/' + id).subscribe(data => {
       this.customer = data;
     });
   }
 
   UpdateBook(id, data) {
-    this.http.put('/book' + id, data)
+    this.http.put('api/' + id, data)
       .subscribe(res => {
         const id1 = res['_id'];
         this.router.navigate(['/book-details', id1]);
