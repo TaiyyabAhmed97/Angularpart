@@ -19,7 +19,7 @@
         <td>{{ custs.lastname }}</td>
         <td>{{ custs.PhoneNum }}</td>
         <td>{{ custs.email }}</td>
-        <td>Show Detail</td>
+        <a [routerLink]="['/cust-details', custs._id]">Show Details</a>
       </tr>
     </tbody>
   </table>

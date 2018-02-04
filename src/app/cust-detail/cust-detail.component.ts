@@ -26,7 +26,7 @@ cust = {};
   deleteCustomer(id) {
     this.http.delete('api/' + id)
       .subscribe(res => {
-          this.router.navigate(['/custs']);
+          this.router.navigate(['/']);
         }, (err) => {
           console.log(err);
         }

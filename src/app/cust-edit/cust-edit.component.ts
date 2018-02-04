@@ -23,15 +23,13 @@ export class CustEditComponent implements OnInit {
     });
   }
 
-  UpdateBook(id, data) {
-    this.http.put('api/' + id, data)
-      .subscribe(res => {
-        const id1 = res['_id'];
-        this.router.navigate(['/book-details', id1]);
-      }, (err) => {
-        console.log(err);
-      }
+  UpdateCustomer(id, book) {
+    this.http.put('/api' + id, this.customer)
+    .subscribe(res => {
+    this.router.navigate(['/']);
+    }, (err) => {
+    console.log(err);
+    }
     );
-  }
-
+    }
 }
