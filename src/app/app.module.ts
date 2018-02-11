@@ -8,6 +8,8 @@ import { CustsComponent } from './custs/custs.component';
 import { CustCreateComponent } from './cust-create/cust-create.component';
 import { CustDetailComponent } from './cust-detail/cust-detail.component';
 import { CustEditComponent } from './cust-edit/cust-edit.component';
+import { DemosComponent } from './demos/demos.component';
+import { DemoCreateComponent } from './demo-create/demo-create.component';
 const appRoutes: Routes = [
   {
     path: 'customers',
@@ -29,6 +31,11 @@ const appRoutes: Routes = [
     component: CustEditComponent,
     data: { title: 'Edit Customer' }
   },
+  {
+    path: 'demos',
+    component: DemosComponent,
+    data: {title: 'Demos List'}
+  },
   { path: '',
     redirectTo: '/customers',
     pathMatch: 'full'
@@ -41,7 +48,9 @@ const appRoutes: Routes = [
     CustsComponent,
     CustCreateComponent,
     CustDetailComponent,
-    CustEditComponent
+    CustEditComponent,
+    DemosComponent,
+    DemoCreateComponent
   ],
   imports: [
     BrowserModule,
