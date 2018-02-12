@@ -36,6 +36,11 @@ const appRoutes: Routes = [
     component: DemosComponent,
     data: {title: 'Demos List'}
   },
+  {
+    path: 'demo-create',
+    component: DemoCreateComponent,
+    data: {title: 'Create Demo'}
+  },
   { path: '',
     redirectTo: '/customers',
     pathMatch: 'full'

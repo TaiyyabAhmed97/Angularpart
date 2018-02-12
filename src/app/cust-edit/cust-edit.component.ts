@@ -25,11 +25,11 @@ export class CustEditComponent implements OnInit {
 
   UpdateCustomer(id, book) {
     this.http.put('/api' + id, this.customer)
-    .subscribe(res => {
-    this.router.navigate(['/']);
-    }, (err) => {
-    console.log(err);
-    }
-    );
-    }
+      .subscribe(res => {
+        this.router.navigate(['/']);
+      }, (err) => {
+        console.log(err);
+        }
+      );
+  }
 }

@@ -11,9 +11,18 @@ import { HttpClient } from '@angular/common/http';
 export class DemoCreateComponent implements OnInit {
 demos = [];
 customer = {};
-  constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit() {
+  }
+
+  SaveDemo() {
+    this.http.post('api/d', this.demos)
+      .subscribe(res => {
+      }, (err) => {
+        console.log(err);
+      }
+    );
   }
 
 }

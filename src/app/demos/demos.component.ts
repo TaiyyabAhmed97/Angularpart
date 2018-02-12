@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-demos',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./demos.component.css']
 })
 export class DemosComponent implements OnInit {
-
-  constructor() { }
+demos: any;
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
+    this.http.get('api/d').subscribe(data => {
+      this.demos = data;
+      console.log(this.demos);
+    });
   }
 
 }
