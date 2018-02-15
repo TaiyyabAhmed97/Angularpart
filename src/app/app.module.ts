@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { CustsComponent } from './custs/custs.component';
@@ -10,6 +10,7 @@ import { CustDetailComponent } from './cust-detail/cust-detail.component';
 import { CustEditComponent } from './cust-edit/cust-edit.component';
 import { DemosComponent } from './demos/demos.component';
 import { DemoCreateComponent } from './demo-create/demo-create.component';
+import { RacketComponent } from './racket/racket.component';
 const appRoutes: Routes = [
   {
     path: 'customers',
@@ -37,7 +38,7 @@ const appRoutes: Routes = [
     data: {title: 'Demos List'}
   },
   {
-    path: 'demo-create',
+    path: 'demo-create/:id',
     component: DemoCreateComponent,
     data: {title: 'Create Demo'}
   },
@@ -55,11 +56,13 @@ const appRoutes: Routes = [
     CustDetailComponent,
     CustEditComponent,
     DemosComponent,
-    DemoCreateComponent
+    DemoCreateComponent,
+    RacketComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
   HttpClientModule,
   RouterModule.forRoot(
     appRoutes,
