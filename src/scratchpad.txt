@@ -1,0 +1,5 @@
+cust/{id}/rackets
+rackets[]
+
+cust/{custId}/racket/{racketId}
+
