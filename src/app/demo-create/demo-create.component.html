@@ -3,24 +3,29 @@
     <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm)">
         <!-- we will place our fields here -->
         <h4>{{cust.firstname}}</h4>
-        <div formArrayName="rackets">
-            <div *ngFor="let address of myForm.controls.rackets.controls; let i=index">
-                <!-- address header, show remove button when more than one address available -->
-                <div>
-                    <span>Racket {{i + 1}}</span>
-                    <span *ngIf="myForm.controls.rackets.controls.length > 1" (click)="removeRackets(i)">
-                    </span>
-                </div>
     
                 <!-- Angular assigns array index as group name by default 0, 1, 2, ... -->
-                <div [formGroupName]="i">
-                    <!--name-->
-                    <app-racket [group]="myForm.controls.rackets.controls[i]"></app-racket>
-                    <div class="margin-20">
-                        <a (click)="addRackets()" style="cursor: default">
-                          Add another address +
-                        </a>
+                <div formArrayName="rackets">
+                    <div *ngFor="let racket of myForm.controls.rackets.controls; let i=index" class="panel panel-default">
+                      <div class="panel-heading">
+                        <span>Racket {{i + 1}}</span>
+                        <span class="glyphicon glyphicon-remove pull-right" *ngIf="myForm.controls.rackets.controls.length > 1" (click)="removeRackets(i)"></span>
                       </div>
-        </div>
+                      <div class="panel-body" [formGroupName]="i">
+                        <div class="form-group col-xs-6">
+                          <label>Name</label>
+                          <input type="text" class="form-control" formControlName="name">
+                          <small [hidden]="myForm.controls.rackets.controls[i].controls.name.valid" class="text-danger">
+                              Namw is required
+                          </small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+          
+                  <div class="margin-20">
+                    <a (click)="addRackets()" style="cursor: default">
+                      Add another Rackets +
+                    </a>
         <button type="submit" [disabled]="!myForm.valid">Submit</button>
 </div>
