@@ -20,8 +20,7 @@ export class DemoCreateComponent implements OnInit {
   // we will initialize our form here
   this.getCustDetail(this.route.snapshot.params['id']);
   this.myForm = this._fb.group({
-    name: ['', [Validators.required, Validators.minLength(5)]],
-    addresses: this._fb.array([
+    rackets: this._fb.array([
         this.initRackets(),
     ])
 });

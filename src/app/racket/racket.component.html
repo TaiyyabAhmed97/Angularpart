@@ -1,3 +1,10 @@
-<p>
-  racket works!
-</p>
+<div [formGroup]="racketForm">
+  <div class="form-group col-xs-6">
+      <label>name</label>
+      <input type="text" class="form-control" formControlName="name">
+      <small [hidden]="racketForm.controls.name.valid" class="text-danger">
+          name is required
+      </small>
+  </div>
+</div>
+
