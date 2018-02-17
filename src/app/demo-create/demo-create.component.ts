@@ -12,6 +12,8 @@ import { Demo } from './demo.interface';
 export class DemoCreateComponent implements OnInit {
   public myForm: FormGroup; // our form model
   cust: any;
+  RacketsArray: any;
+  ret: Date;
 
   // we will use form builder to simplify our syntax
   constructor(private _fb: FormBuilder, private router: Router , private route: ActivatedRoute, private http: HttpClient) { }
@@ -32,9 +34,22 @@ export class DemoCreateComponent implements OnInit {
     });
   }
 
-  save(model: Demo) {
+  save(model: any) {
       // call API to save customer
+      /*
+      this.http.post('api/d', this.ParseArray(model.controls.rackets.value))
+      .subscribe(res => {
+        this.router.navigate(['api/']);
+      }, (err) => {
+        console.log(err);
+      }
+    );*/
       console.log(model);
+      console.log(this.ret);
+    /*for(var i =0;i<model.rackets.length;i++)
+      {
+        console.log("im alive");
+      }*/
   }
 
 
@@ -58,5 +73,14 @@ removeRackets(i: number) {
   control.removeAt(i);
 }
 
+ParseArray(arr)
+{
+  var arr1 = Array();
+  for(var i =0;i<arr.length;i++)
+  {
+    arr1.push(arr[i].name);
+  }
+  return arr1;
+}
 
 }

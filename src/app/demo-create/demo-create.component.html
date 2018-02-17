@@ -2,7 +2,7 @@
     <h4>Add Demos</h4>
     <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm)">
         <!-- we will place our fields here -->
-        <h4>{{cust.firstname}}</h4>
+        <h4><strong>{{cust.firstname}} {{cust.lastname}}</strong></h4>
     
                 <!-- Angular assigns array index as group name by default 0, 1, 2, ... -->
                 <div formArrayName="rackets">
@@ -13,7 +13,7 @@
                       </div>
                       <div class="panel-body" [formGroupName]="i">
                         <div class="form-group col-xs-6">
-                          <label>Name</label>
+                          <label></label>
                           <input type="text" class="form-control" formControlName="name">
                           <small [hidden]="myForm.controls.rackets.controls[i].controls.name.valid" class="text-danger">
                               Namw is required
@@ -22,7 +22,9 @@
                       </div>
                     </div>
                   </div>
-          
+
+                  <div>
+                    <input type="date" [(ngModel)]="ret" name="ret" required>
                   <div class="margin-20">
                     <a (click)="addRackets()" style="cursor: default">
                       Add another Rackets +
