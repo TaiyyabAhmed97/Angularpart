@@ -1,24 +1,24 @@
 <div class="container">
-  <h1>Demos
+  <h1>{{dt.now()}} Demos
+    <a [routerLink]="['/demo-create']" class="btn btn-default btn-lg">
+      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+    </a>
   </h1>
   <table class="table">
     <thead>
       <tr>
         <th>First Name</th>
-        <th>Last Name</th>
+        <th>Phone Number</th>
         <th>Rackets</th>
+        <th>Date to Return</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>temp</td>
-        <td>temp</td>
-        <table>
-          <tbody>
-            <tr>temp</tr>
-            <td>temp</td>
-          </tbody>
-        </table>
+      <tr *ngFor="let demo of demos">
+        <td>{{ demo.Customer.firstname}}</td>
+        <td>{{ demo.Customer.PhoneNum }}</td>
+        <td>{{ demo.ReturnDate }}</td>
+        <a [routerLink]="['/demo-details', demo._id]">Show Details</a>
       </tr>
     </tbody>
   </table>

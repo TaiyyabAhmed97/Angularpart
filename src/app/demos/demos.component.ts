@@ -7,13 +7,15 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./demos.component.css']
 })
 export class DemosComponent implements OnInit {
-demos: any;
+demodeets: any;
+custs: [any];
+demos: [any];
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    this.http.get('api/d').subscribe(data => {
-      this.demos = data;
-      console.log(this.demos);
+    this.http.get('api/c').subscribe(data => {
+      this.demodeets = data;
+      console.log(this.demodeets);
     });
   }
 
